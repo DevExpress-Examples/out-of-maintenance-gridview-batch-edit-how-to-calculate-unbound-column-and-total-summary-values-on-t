@@ -1,0 +1,30 @@
+    <script type="text/javascript">
+        var currentColumnName;
+        function OnBatchEditStartEditing(s, e) {
+            currentColumnName = e.focusedColumn.fieldName;
+        }
+
+
+        function OnBatchEditEndEditing(s, e) {
+            var originalValue = s.batchEditApi.GetCellValue(e.visibleIndex, currentColumnName);
+            var newValue = e.rowValues[(s.GetColumnByField(currentColumnName).index)].value;
+
+            var dif = newValue - originalValue;
+            var label = ASPxClientControl.GetControlCollection().GetByName('label' + currentColumnName);
+
+            label.SetValue((parseFloat(label.GetValue()) + dif));
+
+
+            window.setTimeout(function () {
+                var tue = s.batchEditApi.GetCellValue(e.visibleIndex, "Tue");
+                var mon = s.batchEditApi.GetCellValue(e.visibleIndex, "Mon");
+                var wen = s.batchEditApi.GetCellValue(e.visibleIndex, "Wen");
+                s.batchEditApi.SetCellValue(e.visibleIndex, "Total", tue + mon + wen);
+
+                var total = parseInt(labelMon.GetValue()) + parseInt(labelTue.GetValue()) + parseInt(labelWen.GetValue())
+                labelTotal.SetText(total);
+            }, 10);
+
+        }
+    </script>
+@Html.Action("GridViewPartial")
