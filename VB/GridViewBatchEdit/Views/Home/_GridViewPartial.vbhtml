@@ -6,10 +6,14 @@
                                               settings.SettingsEditing.BatchUpdateRouteValues = New With {.Controller = "Home", .Action = "BatchUpdatePartial"}
                                               settings.SettingsEditing.Mode = GridViewEditingMode.Batch
 
-                                              settings.ClientSideEvents.BatchEditEndEditing = "OnBatchEditEndEditing"
-                                              settings.ClientSideEvents.BatchEditStartEditing = "OnBatchEditStartEditing"
-                                              settings.ClientSideEvents.BatchEditChangesCanceling = "OnBatchEditChangesCanceling"
+
+                                              settings.ClientSideEvents.BatchEditChangesCanceling = "OnChangesCanceling"
+                                              settings.ClientSideEvents.BatchEditRowRecovering = "OnBatchEditRowRecovering"
                                               settings.ClientSideEvents.BatchEditRowDeleting = "OnBatchEditRowDeleting"
+                                              settings.ClientSideEvents.BatchEditStartEditing = "OnBatchEditStartEditing"
+                                              settings.ClientSideEvents.BeginCallback = "OnBeginCallback"
+                                              settings.ClientSideEvents.EndCallback = "OnEndCallback"
+                                              settings.ClientSideEvents.BatchEditEndEditing = "OnBatchEditEndEditing"
 
                                               settings.KeyFieldName = "ID"
 

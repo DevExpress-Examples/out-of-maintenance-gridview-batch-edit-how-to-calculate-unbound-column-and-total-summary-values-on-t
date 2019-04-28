@@ -11,7 +11,7 @@ namespace Models {
                 var key = "34FAA431-CF79-4869-9488-93F6AAE81263";
                 var Session = HttpContext.Current.Session;
                 if (Session[key] == null)
-                    Session[key] = Enumerable.Range(0, 3).Select(i => new GridDataItem
+                    Session[key] = Enumerable.Range(0, 50).Select(i => new GridDataItem
                     {
                         ID = i,
                         Mon = i * 10 % 3,

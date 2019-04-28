@@ -12,8 +12,8 @@ Namespace Models
 				Dim key = "34FAA431-CF79-4869-9488-93F6AAE81263"
 				Dim Session = HttpContext.Current.Session
 				If Session(key) Is Nothing Then
-					Session(key) = Enumerable.Range(0, 3).Select(Function(i) New GridDataItem With {.ID = i, .Mon = i * 10 Mod 3, .Tue = i * 5 Mod 3, .Wen = i Mod 2}).ToList()
-				End If
+                    Session(key) = Enumerable.Range(0, 50).Select(Function(i) New GridDataItem With {.ID = i, .Mon = i * 10 Mod 3, .Tue = i * 5 Mod 3, .Wen = i Mod 2}).ToList()
+                End If
 				Return CType(Session(key), List(Of GridDataItem))
 			End Get
 		End Property
